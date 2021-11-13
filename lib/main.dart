@@ -1,7 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:appfb/friend-page.dart';
 import 'package:appfb/login-page.dart';
+import 'package:appfb/homepage.dart';
+import 'package:appfb/profile.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -65,13 +68,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Tab(icon: Icon(Icons.home_sharp)),
                 Tab(icon: Icon(Icons.people_sharp)),
                 Tab(icon: Icon(Icons.notifications)),
-                // Tab(icon: Icon(Icons.menu)),
-              ],
+              ],   
             ),
           ),
           body: TabBarView(
             children: [
-              Icon(Icons.home),
+              HomePage(),
               FriendPage(
                 friend: List<Friend>.generate(
                   11,
@@ -111,11 +113,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         margin: EdgeInsets.only(left: 10),
                         child: Text('Profile')),
                   ],
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context, MaterialPageRoute(builder: (context)=>ProfilePage())
+                    );
+                  },
                 ),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
               ListTile(
                 title: Row(
                   children: [
