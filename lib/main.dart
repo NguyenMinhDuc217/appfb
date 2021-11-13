@@ -1,32 +1,25 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:appfb/friend-page.dart';
+import 'package:appfb/login-page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MaterialApp(
+    title: 'Fake Facebook',
+    debugShowCheckedModeBanner: false,
+    home: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+    return MainSignIn();
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -50,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Fake Facebook',
       debugShowCheckedModeBanner: false,
       home: DefaultTabController(
         length: 3,
@@ -68,7 +62,6 @@ class _MyHomePageState extends State<MyHomePage> {
           body: TabBarView(
             children: [
               Icon(Icons.home),
-              //Icon(Icons.assignment_ind_rounded),
               FriendPage(
                 friend: List<Friend>.generate(
                   11,
@@ -93,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Row(
                   children: [
                     Icon(Icons.person),
-                    Text('Profile'),
+                    Container(margin:EdgeInsets.only(left:10),child:Text('Profile')),
                   ],
                 ),
                 onTap: () {
@@ -104,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Row(
                   children: [
                     Icon(Icons.security),
-                    Text('Security'),
+                     Container(margin:EdgeInsets.only(left:10),child:Text('Security')),
                   ],
                 ),
                 onTap: () {
@@ -115,11 +108,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Row(
                   children: [
                     Icon(Icons.logout),
-                    Text('Logout'),
+                    Container(margin:EdgeInsets.only(left:10),child:Text('Logout'))
                   ],
                 ),
                 onTap: () {
                   Navigator.pop(context);
+
                 },
               )
             ],
