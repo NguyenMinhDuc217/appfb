@@ -4,9 +4,12 @@ import 'package:appfb/friend-page.dart';
 import 'package:appfb/login-page.dart';
 
 void main() {
-  runApp(const MaterialApp(
+  runApp(MaterialApp(
     title: 'Fake Facebook',
     debugShowCheckedModeBanner: false,
+    theme: ThemeData(
+        fontFamily: 'Roboto',
+      ),
     home: MyApp(),
   ));
 }
@@ -20,6 +23,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  final String username;
+  const MyHomePage({Key? key, required this.username}) : super(key: key);
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -45,10 +50,15 @@ class _MyHomePageState extends State<MyHomePage> {
     return MaterialApp(
       title: 'Fake Facebook',
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: 'Roboto',
+      ),
       home: DefaultTabController(
         length: 3,
         child: Scaffold(
+          backgroundColor:Color(0xff18191a),
           appBar: AppBar(
+            backgroundColor:Color(0xff242526),
             title: const Text('FAKE FACEBOOK'),
             bottom: const TabBar(
               tabs: [
@@ -76,17 +86,30 @@ class _MyHomePageState extends State<MyHomePage> {
               child: ListView(
             padding: EdgeInsets.zero,
             children: [
-              const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-                child: Text('MENU'),
-              ),
+              DrawerHeader(
+                  decoration: const BoxDecoration(
+                    color: Colors.blue,
+                  ),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                          radius: 30,
+                          backgroundImage:
+                              AssetImage('images/avatar/LogoPD.jpg'),
+                          child: InkWell(
+                            borderRadius: BorderRadius.circular(30),
+                            onTap: () {},
+                          )),
+                      Container(margin:EdgeInsets.only(left: 20),child:Text(widget.username,style: TextStyle(fontSize:20),)),
+                    ],
+                  )),
               ListTile(
                 title: Row(
                   children: [
                     Icon(Icons.person),
-                    Container(margin:EdgeInsets.only(left:10),child:Text('Profile')),
+                    Container(
+                        margin: EdgeInsets.only(left: 10),
+                        child: Text('Profile')),
                   ],
                 ),
                 onTap: () {
@@ -97,7 +120,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Row(
                   children: [
                     Icon(Icons.security),
-                     Container(margin:EdgeInsets.only(left:10),child:Text('Security')),
+                    Container(
+                        margin: EdgeInsets.only(left: 10),
+                        child: Text('Security')),
                   ],
                 ),
                 onTap: () {
@@ -108,12 +133,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: Row(
                   children: [
                     Icon(Icons.logout),
-                    Container(margin:EdgeInsets.only(left:10),child:Text('Logout'))
+                    Container(
+                        margin: EdgeInsets.only(left: 10),
+                        child: Text('Logout'))
                   ],
                 ),
                 onTap: () {
                   Navigator.pop(context);
-
                 },
               )
             ],

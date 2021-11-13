@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
 
-class FriendPage extends StatefulWidget {
-  final List<Friend> friend;
-  const FriendPage({Key? key, required this.friend}) : super(key: key);
-  @override
-  FriendPageState createState() => FriendPageState();
-}
-
 class Friend {
   final String name;
   final String mutualfriends;
@@ -15,7 +8,12 @@ class Friend {
 
   Friend(this.name, this.mutualfriends, this.textButton);
 }
-
+class FriendPage extends StatefulWidget {
+  const FriendPage({Key? key, required this.friend}) : super(key: key);
+  final List<Friend> friend;
+  @override
+  FriendPageState createState() => FriendPageState();
+}
 class FriendPageState extends State<FriendPage> {
   @override
   Widget build(BuildContext context) {
@@ -34,9 +32,9 @@ class FriendPageState extends State<FriendPage> {
                 )),
                 Container(
                   margin: EdgeInsets.fromLTRB(20, 0, 10, 0),
-                  child: Text(widget.friend[index].name),
+                  child: Text(widget.friend[index].name,style: TextStyle(color:Colors.white)),
                 ),
-                Text('(' + widget.friend[index].mutualfriends + ' bạn chung)'),
+                Text('(' + widget.friend[index].mutualfriends + ' bạn chung)',style: TextStyle(color:Colors.white),),
               ],
             ),
             trailing: OutlinedButton(
