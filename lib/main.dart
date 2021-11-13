@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:appfb/thongbao.dart';
+import 'package:appfb/security.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +32,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -44,64 +45,64 @@ class _MyHomePageState extends State<MyHomePage> {
               tabs: [
                 Tab(icon: Icon(Icons.home_sharp)),
                 Tab(icon: Icon(Icons.people_sharp)),
-                Tab(icon: Icon(Icons.notifications)), 
+                Tab(icon: Icon(Icons.notifications)),
                 // Tab(icon: Icon(Icons.menu)),
-              ],   
+              ],
             ),
           ),
-          body: const TabBarView(
-            children: [
-              Icon(Icons.home),
-              Icon(Icons.assignment_ind_rounded),
-              Icon(Icons.notifications),
-            ],
-          ),
+          body: TabBarView(children: [
+            Icon(Icons.home),
+            Icon(Icons.assignment_ind_rounded),
+            ThongBaoPage(),
+          ]),
           drawer: Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: [
-                const DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                  ),
-                  child: Text('MENU'),
+              child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              const DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
                 ),
-                ListTile(
-                  title: Row(
-                    children: [
-                      Icon(Icons.person),
-                      Text('Profile'),
-                    ],
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
+                child: Text('MENU'),
+              ),
+              ListTile(
+                title: Row(
+                  children: [
+                    Icon(Icons.person),
+                    Text('Profile'),
+                  ],
                 ),
-                ListTile(
-                  title: Row(
-                    children: [
-                      Icon(Icons.security),
-                      Text('Security'),          
-                    ],
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Row(
+                  children: [
+                    Icon(Icons.security),
+                    Text('Security'),
+                  ],
                 ),
-                ListTile(
-                  title: Row(
-                    children: [
-                      Icon(Icons.logout),
-                      Text('Logout'),          
-                    ],
-                  ),
-                  onTap: (){
-                    Navigator.pop(context);
-                  },
-                )
-              ],
-            )
-          ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SecurityMeNu()),
+                  );
+                },
+              ),
+              ListTile(
+                title: Row(
+                  children: [
+                    Icon(Icons.logout),
+                    Text('Logout'),
+                  ],
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              )
+            ],
+          )),
         ),
       ),
     );
