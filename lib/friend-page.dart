@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:appfb/error-page.dart';
+
 
 class Friend {
   final String name;
@@ -28,7 +30,9 @@ class FriendPageState extends State<FriendPage> {
                         'images/friend/' + (index + 1).toString() + '.jpg'),
                     child:InkWell(
                       borderRadius:BorderRadius.circular(30),
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => ErrorPage()));
+                      },
                 )),
                 Container(
                   margin: EdgeInsets.fromLTRB(20, 0, 10, 0),
@@ -45,7 +49,7 @@ class FriendPageState extends State<FriendPage> {
                   if (widget.friend[index].addFriendState) {
                     widget.friend[index].textButton = 'Huỷ kết bạn';
                   } else {
-                    widget.friend[index].textButton = 'Thêm bạn bè';
+                    widget.friend[index].textButton = 'Kết bạn';
                   }
                 });
               },
