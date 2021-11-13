@@ -5,6 +5,8 @@ import 'package:appfb/friend-page.dart';
 import 'package:appfb/login-page.dart';
 import 'package:appfb/homepage.dart';
 import 'package:appfb/profile.dart';
+import 'package:appfb/thongbao.dart';
+import 'package:appfb/security.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -26,8 +28,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  final String username;
-  const MyHomePage({Key? key, required this.username}) : super(key: key);
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -81,46 +81,46 @@ class _MyHomePageState extends State<MyHomePage> {
                       nameList[i], rand.nextInt(10).toString(), 'Huỷ kết bạn'),
                 ),
               ),
-              Icon(Icons.notifications),
+              ThongBaoPage(),
             ],
           ),
           drawer: Drawer(
               child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              DrawerHeader(
-                  decoration: const BoxDecoration(
-                    color: Colors.blue,
-                  ),
-                  child: Row(
+                padding: EdgeInsets.zero,
+                children: [
+                  DrawerHeader(
+                    decoration: const BoxDecoration(
+                      color: Colors.blue,
+                    ),
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                            radius: 30,
+                            backgroundImage:
+                                AssetImage('images/logo/logoMU.jpg'),
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(30),
+                              onTap: () {},
+                            )),
+                        Container(margin:EdgeInsets.only(left: 20),child:Text('Manchester United',style: TextStyle(fontSize:20),)),
+                      ],
+                    )),
+                ListTile(
+                  title: Row(
                     children: [
-                      CircleAvatar(
-                          radius: 30,
-                          backgroundImage:
-                              AssetImage('images/avatar/LogoPD.jpg'),
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(30),
-                            onTap: () {},
-                          )),
-                      Container(margin:EdgeInsets.only(left: 20),child:Text(widget.username,style: TextStyle(fontSize:20),)),
-                    ],
-                  )),
-              ListTile(
-                title: Row(
-                  children: [
-                    Icon(Icons.person),
-                    Container(
+                      Icon(Icons.person),
+                      Container(
                         margin: EdgeInsets.only(left: 10),
                         child: Text('Profile')),
-                  ],
-                  ),
+                    ],
+                    ),
                   onTap: () {
                     Navigator.push(
                       context, MaterialPageRoute(builder: (context)=>ProfilePage())
-                    );
-                  },
+                   );
+                 },
                 ),
-              ListTile(
+                ListTile(
                 title: Row(
                   children: [
                     Icon(Icons.security),
@@ -130,24 +130,25 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SecurityMeNu()));
                 },
               ),
-              ListTile(
-                title: Row(
-                  children: [
-                    Icon(Icons.logout),
-                    Container(
-                        margin: EdgeInsets.only(left: 10),
-                        child: Text('Logout'))
-                  ],
-                ),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              )
-            ],
-          )),
+                ListTile(
+                 title: Row(
+                    children: [
+                      Icon(Icons.logout),
+                     Container(
+                         margin: EdgeInsets.only(left: 10),
+                          child: Text('Logout'))
+                    ],
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                )
+              ],
+            )
+          ),
         ),
       ),
     );

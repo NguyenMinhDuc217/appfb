@@ -28,11 +28,11 @@ class _ProfilePageState extends State<ProfilePage>{
         mainAxisSize: MainAxisSize.min,
         children: [
           Text('Manchester United',
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
           ),
           Container(
             margin: EdgeInsets.only(left: 10),
-            child: Icon(Icons.check_circle_outline),
+            child: Icon(Icons.check_circle_outline,color: Colors.white),
           )
         ],
       )
@@ -42,45 +42,59 @@ class _ProfilePageState extends State<ProfilePage>{
         children: [
           Row(
             children: [
-              Icon(Icons.cake),
+              Icon(Icons.cake,color: Colors.white),
               Container(
                 margin: EdgeInsets.only(left: 10),
-                child: Text('09 tháng 09 năm 1899',style: TextStyle(fontWeight: FontWeight.bold)),
+                child: Text('09 tháng 09 năm 1899',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white)),
               )
             ],
           ),
           Row(
             children: [
-              Icon(Icons.mail),
+              Icon(Icons.mail,color: Colors.white),
               Container(
                 margin: EdgeInsets.only(left: 10),
-                child: Text('manchesterunited@gmail.com',style: TextStyle(fontWeight: FontWeight.bold)),
+                child: Text('manchesterunited@gmail.com',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white)),
               )
             ],
           ),
           Row(
             children: [
-              Icon(Icons.home_filled),
+              Icon(Icons.home_filled,color: Colors.white),
               Container(
                 margin: EdgeInsets.only(left: 10),
-                child: Text('Sống tại Manchester',style: TextStyle(fontWeight: FontWeight.bold)),
+                child: Text('Sống tại Manchester',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white)),
               )
             ],
           )
         ],
       ),
     );
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xff2d88ff),
-        title: Text('FAKE FACEBOOK'),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: 'Roboto',
       ),
-      body: Center(
-        child: Column(
-          
-          children: [
-            imgSection,name,information,
+      home: Scaffold(
+        backgroundColor: Color(0xff242526),     
+        appBar: AppBar(
+          backgroundColor: Color(0xff242526),          
+          actions: <Widget>[
+            IconButton(
+              onPressed: (){
+                Navigator.pop(context);
+              }, 
+              icon: Icon(Icons.arrow_back, color: Colors.white,),
+            )
           ],
+          title: Text('Profile',style: TextStyle(color: Colors.white)),
+        ),
+        body: Center(
+          child: Column(         
+            children: [
+              imgSection,name,information,
+            ],
+          ),
         ),
       ),
     );

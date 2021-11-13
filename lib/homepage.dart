@@ -33,11 +33,12 @@ class _HomePageState extends State<HomePage>{
   @override
     Widget build(BuildContext context){
     return ListView(
-      padding: EdgeInsets.all(12),
+      padding: EdgeInsets.all(15),
       children: [
         Container(
+          margin: EdgeInsets.only(bottom: 10),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Color(0xff242526),
             border: Border.all(color: Colors.black12),
             borderRadius: BorderRadius.circular(15),
           ),
@@ -56,10 +57,10 @@ class _HomePageState extends State<HomePage>{
                     children: [
                       Container(
                         child: Text('Manchester United',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                       ),
-                      Text('20 phút trước'),
+                      Text('20 phút trước',style: TextStyle(color: Colors.white),),
                     ],
                   )
                 ],
@@ -69,7 +70,7 @@ class _HomePageState extends State<HomePage>{
                 margin: EdgeInsets.only(left: 15),
                 child: Row(
                 children: [
-                  Flexible(child: Text(caption),),
+                  Flexible(child: Text(caption,style: TextStyle(color: Colors.white)),),
                   TextButton(
                     onPressed: (){
                       if(click==false){
@@ -78,7 +79,7 @@ class _HomePageState extends State<HomePage>{
                       }
                       setState(() {});                  
                     }, 
-                    child: Text(seemore),
+                    child: Text(seemore,style: TextStyle(color: Colors.blue)),
                   )
                 ],
               ),
@@ -110,15 +111,15 @@ class _HomePageState extends State<HomePage>{
                                   ),
                                   child: Icon(Icons.thumb_up, color: Colors.white,),
                                 ),
-                                Text(yourlike+like.toString()+orderlike),
+                                Text(yourlike+like.toString()+orderlike,style: TextStyle(color: Colors.white)),
                               ],
                             ),
                           ),
                           Container(
                             padding: EdgeInsets.only(right: 5),
-                            child: Text('15 bình luận'),
+                            child: Text('15 bình luận',style: TextStyle(color: Colors.white)),
                           ),
-                          Text('10 chia sẻ'),
+                          Text('10 chia sẻ',style: TextStyle(color: Colors.white)),
                         ],
                       ),
                     ),
@@ -128,6 +129,8 @@ class _HomePageState extends State<HomePage>{
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           IconButton(
+                            hoverColor: Colors.blue,
+                            color: Colors.white,
                             tooltip: 'LIKE',
                             onPressed: (){
                               _icon =! _icon;
@@ -143,15 +146,17 @@ class _HomePageState extends State<HomePage>{
                               }
                               setState(() {});
                             }, 
-                            icon: _icon?Icon(Icons.thumb_up_alt_outlined):Icon(Icons.thumb_up_alt_rounded),
+                            icon: _icon?Icon(Icons.thumb_up_alt_outlined):Icon(Icons.thumb_up_alt_rounded,color: Colors.blue),
                           ),
                           IconButton(
                             hoverColor: Colors.blue,
+                            color: Colors.white,
                             onPressed: (){},
                             icon: Icon(Icons.comment),
                           ),
                           IconButton(
                             hoverColor: Colors.blue,
+                            color: Colors.white,
                             onPressed: (){},
                             icon: Icon(Icons.share),
                           ),
@@ -167,7 +172,7 @@ class _HomePageState extends State<HomePage>{
         ),
         Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Color(0xff242526),
             border: Border.all(color: Colors.black12),
             borderRadius: BorderRadius.circular(15),
           ),
@@ -186,10 +191,10 @@ class _HomePageState extends State<HomePage>{
                     children: [
                       Container(
                         child: Text('Manchester United',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
                         ),
                       ),
-                      Text('1 giờ trước'),
+                      Text('1 giờ trước',style: TextStyle(color: Colors.white)),
                     ],
                   )
                 ],
@@ -199,7 +204,7 @@ class _HomePageState extends State<HomePage>{
                 margin: EdgeInsets.only(left: 15),
                 child: Row(
                 children: [
-                  Flexible(child: Text(caption2),),
+                  Flexible(child: Text(caption2,style: TextStyle(color: Colors.white)),),
                   TextButton(
                     onPressed: (){
                       if(click2==false){
@@ -208,7 +213,7 @@ class _HomePageState extends State<HomePage>{
                       }
                       setState(() {});                  
                     }, 
-                    child: Text(seemore2),
+                    child: Text(seemore2,style: TextStyle(color: Colors.blue)),
                   )
                 ],
               ),
@@ -240,15 +245,15 @@ class _HomePageState extends State<HomePage>{
                                   ),
                                   child: Icon(Icons.thumb_up, color: Colors.white,),
                                 ),
-                                Text(yourlike2+like2.toString()+orderlike2),
+                                Text(yourlike2+like2.toString()+orderlike2,style: TextStyle(color: Colors.white)),
                               ],
                             ),
                           ),
                           Container(
                             padding: EdgeInsets.only(right: 5),
-                            child: Text('20 bình luận'),
+                            child: Text('20 bình luận',style: TextStyle(color: Colors.white)),
                           ),
-                          Text('17 chia sẻ'),
+                          Text('17 chia sẻ',style: TextStyle(color: Colors.white)),
                         ],
                       ),
                     ),
@@ -258,6 +263,8 @@ class _HomePageState extends State<HomePage>{
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           IconButton(
+                            hoverColor: Colors.blue,
+                            color: Colors.white,
                             tooltip: 'LIKE',
                             onPressed: (){
                               _icon2 =! _icon2;
@@ -273,15 +280,17 @@ class _HomePageState extends State<HomePage>{
                               }
                               setState(() {});
                             }, 
-                            icon: _icon2?Icon(Icons.thumb_up_alt_outlined):Icon(Icons.thumb_up_alt_rounded),
+                            icon: _icon2?Icon(Icons.thumb_up_alt_outlined):Icon(Icons.thumb_up_alt_rounded,color:Colors.blue),
                           ),
                           IconButton(
                             hoverColor: Colors.blue,
+                            color: Colors.white,
                             onPressed: (){},
                             icon: Icon(Icons.comment),
                           ),
                           IconButton(
                             hoverColor: Colors.blue,
+                            color: Colors.white,
                             onPressed: (){},
                             icon: Icon(Icons.share),
                           ),
@@ -297,7 +306,7 @@ class _HomePageState extends State<HomePage>{
         ),
         Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Color(0xff242526),
             border: Border.all(color: Colors.black12),
             borderRadius: BorderRadius.circular(15),
           ),
@@ -316,10 +325,10 @@ class _HomePageState extends State<HomePage>{
                     children: [
                       Container(
                         child: Text('Manchester United',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
                         ),
                       ),
-                      Text('45 phút trước'),
+                      Text('45 phút trước',style: TextStyle(color: Colors.white)),
                     ],
                   )
                 ],
@@ -329,7 +338,7 @@ class _HomePageState extends State<HomePage>{
                 margin: EdgeInsets.only(left: 15),
                 child: Row(
                 children: [
-                  Flexible(child: Text(caption3),),
+                  Flexible(child: Text(caption3,style: TextStyle(color: Colors.white)),),
                   TextButton(
                     onPressed: (){
                       if(click3==false){
@@ -338,7 +347,7 @@ class _HomePageState extends State<HomePage>{
                       }
                       setState(() {});                  
                     }, 
-                    child: Text(seemore3),
+                    child: Text(seemore3,style: TextStyle(color: Colors.blue)),
                   )
                 ],
               ),
@@ -370,15 +379,15 @@ class _HomePageState extends State<HomePage>{
                                   ),
                                   child: Icon(Icons.thumb_up, color: Colors.white,),
                                 ),
-                                Text(yourlike3+like3.toString()+orderlike3),
+                                Text(yourlike3+like3.toString()+orderlike3,style: TextStyle(color: Colors.white)),
                               ],
                             ),
                           ),
                           Container(
                             padding: EdgeInsets.only(right: 5),
-                            child: Text('300 bình luận'),
+                            child: Text('300 bình luận',style: TextStyle(color: Colors.white)),
                           ),
-                          Text('250 chia sẻ'),
+                          Text('250 chia sẻ',style: TextStyle(color: Colors.white)),
                         ],
                       ),
                     ),
@@ -388,6 +397,8 @@ class _HomePageState extends State<HomePage>{
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           IconButton(
+                            hoverColor: Colors.blue,
+                            color: Colors.white,
                             tooltip: 'LIKE',
                             onPressed: (){
                               _icon3 =! _icon3;
@@ -403,15 +414,17 @@ class _HomePageState extends State<HomePage>{
                               }
                               setState(() {});
                             }, 
-                            icon: _icon3?Icon(Icons.thumb_up_alt_outlined):Icon(Icons.thumb_up_alt_rounded),
+                            icon: _icon3?Icon(Icons.thumb_up_alt_outlined):Icon(Icons.thumb_up_alt_rounded,color: Colors.blue),
                           ),
                           IconButton(
                             hoverColor: Colors.blue,
+                            color: Colors.white,
                             onPressed: (){},
                             icon: Icon(Icons.comment),
                           ),
                           IconButton(
                             hoverColor: Colors.blue,
+                            color: Colors.white,
                             onPressed: (){},
                             icon: Icon(Icons.share),
                           ),

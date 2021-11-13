@@ -95,7 +95,7 @@ class MainSignInState extends State<MainSignIn> {
                     ));
           } else if (_controller1.text == _controller2.text) {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => MyHomePage(username: _controller1.text,)));
+                context, MaterialPageRoute(builder: (context) => MyHomePage()));
           }else{
             showDialog(
                 context: context,
